@@ -1,4 +1,4 @@
-package com.intermediate.basketball;
+package com.intermediate.sport;
 
 public class App {
 

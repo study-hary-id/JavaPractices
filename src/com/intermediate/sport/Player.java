@@ -1,4 +1,4 @@
-package com.intermediate.basketball;
+package com.intermediate.sport;
 
 import java.util.Random;
 import java.time.LocalDate;
