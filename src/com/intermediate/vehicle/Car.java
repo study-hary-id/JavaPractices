@@ -5,15 +5,18 @@ public class Car {
 	private String brand;
 	private String model;
 	private String type;
+
 	private short yearOfLaunch;
 
-	private String color; // White, Silver, Black, Gray
+	// White, Silver, Black, Gray, Grey
+	private String color;
 	private String transmission;
 
 	private byte numberOfSeats;
 	private byte numberOfDoors;
 
-	private short power; // Horsepower(HP) / Pferdestarke(PS)
+	// Horsepower(HP) / Pferdestarke(PS)
+	private short power;
 	private short cubicCapacity;
 
 	private int price;
@@ -27,16 +30,22 @@ public class Car {
 	public Car(String brand, String model, String type, short yearOfLaunch, String color, String transmission,
 			byte numberOfSeats, byte numberOfDoors, short power, short cubicCapacity, int price, int mileage,
 			boolean brandNew, boolean secondHand, boolean isDamaged) {
+
 		this.brand = brand;
 		this.model = model;
 		this.type = type;
+
 		this.yearOfLaunch = yearOfLaunch;
+
 		this.color = color;
 		this.transmission = transmission;
+
 		this.numberOfSeats = numberOfSeats;
 		this.numberOfDoors = numberOfDoors;
+
 		this.power = power;
 		this.cubicCapacity = cubicCapacity;
+
 		this.price = price;
 		this.mileage = mileage;
 		this.brandNew = brandNew;
@@ -44,10 +53,20 @@ public class Car {
 		this.isDamaged = isDamaged;
 	}
 
-	// Model
+	public String getBrand() {
+		return this.brand;
+	}
 
-	public String getTransmission() {
-		return this.transmission;
+	public String getModel() {
+		return this.model;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public String getFullname() {
+		return this.brand + " " + this.model + " " + this.type;
 	}
 
 	public boolean isBrandNew() {
@@ -84,15 +103,17 @@ public class Car {
 	}
 
 	public void printDescription() {
-		System.out.println(yearOfLaunch + " " + brand + " " + model + " " + type);
+		System.out.println(yearOfLaunch + " " + getFullname());
+//		(secondHand ? printMileage() : "-");
 		if (secondHand) {
 			printMileage();
 		}
-//		(secondHand ? printMileage() : "-");
+
 		System.out.println("Color: " + color);
 		System.out.println("Seats: " + numberOfSeats);
 		System.out.println("Doors: " + numberOfDoors);
 		System.out.println("Power: " + power + " HP/PS " + cubicCapacity + " cc");
+
 		System.out.println("---------------------------");
 		System.out.println("Price: Rp " + price + ",00-");
 	}
