@@ -6,30 +6,61 @@ public class App {
 
 	public static void main(String[] args) {
 
-//		showCarsDescriptionAndTestDrive();
+//		testInstantiateCarAndPrintDescription();
+
+		testDriveAndShowToyotaCarsDescription();
+
+		testDriveAndShowDaihatsuCarsDescription();
 
 //		testSecondCarVisibilityMileageAfterReset();
 	}
 
-	public static void showCarsDescriptionAndTestDrive() {
-		Car toyotaAvanza1_3EMT = new Car("Toyota", "Avanza", "1.3 E M/T", (short) 2022, "white", "MT", (byte) 7,
-				(byte) 5, (short) 98, (short) 1329, 233100000, 0, true, false, false);
+	static void testInstantiateCarAndPrintDescription() {
+		Car car = new Car("Toyota", "Avanza", "1.3 E CVT", (short) 2022, "White", "CVT", (byte) 7, (byte) 5, (short) 98,
+				(short) 1329, 247800000, 0, true, false, false);
+		car.printDescription();
+		car.startTheEngine();
+	}
 
-		Car toyotaAvanza1_3ECVT = new Car("Toyota", "Avanza", "1.3 E CVT", (short) 2022, "gray", "CVT", (byte) 7,
-				(byte) 5, (short) 98, (short) 1329, 247800000, 0, true, false, false);
+	static void testDriveAndShowToyotaCarsDescription() {
+		Toyota toyotaAvanza1_3EMT = new Toyota("Avanza", "1.3 E M/T", (short) 2022, "White", "MT", (byte) 7, (byte) 5,
+				(short) 98, (short) 1329, 233100000, 0, true, false, false);
+
+		Toyota toyotaAvanza1_3ECVT = new Toyota("Avanza", "1.3 E CVT", (short) 2022, "Gray", "CVT", (byte) 7, (byte) 5,
+				(short) 98, (short) 1329, 247800000, 0, true, false, false);
 
 		Car[] myToyotaCars = { toyotaAvanza1_3EMT, toyotaAvanza1_3ECVT };
 		Random randomNumberGenerator = new Random();
 		int bound = 10000000;
-		for (Car car : myToyotaCars) {
-			car.printDescription();
-			System.out.println("---------------------------");
 
+		for (Car car : myToyotaCars) {
 			car.startTheEngine();
 			car.drive(randomNumberGenerator.nextInt(bound));
+			System.out.println("--------------------------------");
 
-			car.printMileage();
-			System.out.println();
+			car.printDescription();
+			System.out.println("---------------------------\n");
+		}
+	}
+
+	static void testDriveAndShowDaihatsuCarsDescription() {
+		Daihatsu daihatsuXenia1_3MMT = new Daihatsu("Xenia", "1.3 M MT", (short) 2022, "Gray", "MT", (byte) 7, (byte) 5,
+				(short) 98, (short) 1329, 190900000, 0, true, false, false);
+
+		Daihatsu daihatsuXenia1_3XMT = new Daihatsu("Xenia", "1.3 X MT", (short) 2022, "Black", "MT", (byte) 7,
+				(byte) 5, (short) 98, (short) 1329, 193900000, 0, true, false, false);
+
+		Car[] myDaihatsuCars = { daihatsuXenia1_3MMT, daihatsuXenia1_3XMT };
+		Random randomNumberGenerator = new Random();
+		int bound = 10000000;
+
+		for (Car car : myDaihatsuCars) {
+			car.startTheEngine();
+			car.drive(randomNumberGenerator.nextInt(bound));
+			System.out.println("--------------------------------");
+
+			car.printDescription();
+			System.out.println("---------------------------\n");
 		}
 	}
 
