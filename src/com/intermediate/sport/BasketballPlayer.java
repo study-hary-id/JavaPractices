@@ -8,20 +8,20 @@ public class BasketballPlayer extends Athlete {
 	private float pointsPerGame;
 	private int totalPoints;
 
-	public BasketballPlayer(String name, String nickname, short yearOfBorn, String team, int gamesPlayed,
+	public BasketballPlayer(String name, String nickname, short yearOfBorn, String team, int totalCompetitions,
 			float freeThrowPercentage, int totalPoints) {
-		super(name, nickname, yearOfBorn, team, gamesPlayed);
+		super(name, nickname, yearOfBorn, team, totalCompetitions);
 		this.freeThrowPercentage = freeThrowPercentage;
 		this.totalPoints = totalPoints;
-		this.pointsPerGame = calculatePPG(totalPoints, gamesPlayed);
+		this.pointsPerGame = calculatePPG(totalPoints, totalCompetitions);
 	}
 
-	public BasketballPlayer(String name, short yearOfBorn, String team, int gamesPlayed, float freeThrowPercentage,
-			int totalPoints) {
-		super(name, yearOfBorn, team, gamesPlayed);
+	public BasketballPlayer(String name, short yearOfBorn, String team, int totalCompetitions,
+			float freeThrowPercentage, int totalPoints) {
+		super(name, yearOfBorn, team, totalCompetitions);
 		this.freeThrowPercentage = freeThrowPercentage;
 		this.totalPoints = totalPoints;
-		this.pointsPerGame = calculatePPG(totalPoints, gamesPlayed);
+		this.pointsPerGame = calculatePPG(totalPoints, totalCompetitions);
 	}
 
 	// Controller
@@ -32,8 +32,8 @@ public class BasketballPlayer extends Athlete {
 
 	// Utilities
 
-	private float calculatePPG(int totalPoints, int gamesPlayed) {
-		return (float) totalPoints / (float) gamesPlayed;
+	private float calculatePPG(int totalPoints, int totalCompetitions) {
+		return (float) totalPoints / (float) totalCompetitions;
 	}
 
 	// Presentation view
@@ -47,11 +47,11 @@ public class BasketballPlayer extends Athlete {
 		}
 	}
 
-	public void playGame(int score) {
-		super.playGame();
+	public void compete(int score) {
+		super.compete();
 		this.freeThrow();
 		this.totalPoints += score;
-		this.pointsPerGame = calculatePPG(totalPoints, super.getGamesPlayed());
+		this.pointsPerGame = calculatePPG(totalPoints, super.getTotalCompetitions());
 	}
 
 	@Override
@@ -59,6 +59,11 @@ public class BasketballPlayer extends Athlete {
 		super.printBiodata();
 		System.out.println("With (FTP " + freeThrowPercentage + "%) - (PPG " + pointsPerGame + ")");
 		System.out.println("----------------------------------");
+	}
+
+	@Override
+	public String getBodyType() {
+		return "Tall and lean muscle";
 	}
 
 }

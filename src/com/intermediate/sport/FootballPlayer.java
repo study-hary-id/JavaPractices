@@ -5,24 +5,24 @@ public class FootballPlayer extends Athlete {
 	private int passingYards;
 	private int completions;
 
-	public FootballPlayer(String name, String nickname, short yearOfBorn, String team, int gamesPlayed,
+	public FootballPlayer(String name, String nickname, short yearOfBorn, String team, int totalCompetitions,
 			int passingYards, int completions) {
-		super(name, nickname, yearOfBorn, team, gamesPlayed);
+		super(name, nickname, yearOfBorn, team, totalCompetitions);
 		this.passingYards = passingYards;
 		this.completions = completions;
 	}
 
-	public FootballPlayer(String name, short yearOfBorn, String team, int gamesPlayed, int passingYards,
+	public FootballPlayer(String name, short yearOfBorn, String team, int totalCompetitions, int passingYards,
 			int completions) {
-		super(name, yearOfBorn, team, gamesPlayed);
+		super(name, yearOfBorn, team, totalCompetitions);
 		this.passingYards = passingYards;
 		this.completions = completions;
 	}
 
 	// Presentation view
 
-	public void playGame(int passingYards, int completions) {
-		super.playGame();
+	public void compete(int passingYards, int completions) {
+		super.compete();
 		this.passingYards += passingYards;
 		this.completions += completions;
 	}
@@ -32,6 +32,11 @@ public class FootballPlayer extends Athlete {
 		super.printBiodata();
 		System.out.println("Completions (" + completions + ") - (" + passingYards + " yards)");
 		System.out.println("----------------------------------");
+	}
+
+	@Override
+	public String getBodyType() {
+		return "Big muscles and great endurance";
 	}
 
 }
