@@ -1,6 +1,8 @@
 package com.intermediate.vehicle;
 
-public class Car {
+import java.time.LocalDate;
+
+public abstract class Car {
 
 	private String brand;
 	private String model;
@@ -29,8 +31,7 @@ public class Car {
 
 	public Car(String brand, String model, String type, short yearOfLaunch, String color, String transmission,
 			byte numberOfSeats, byte numberOfDoors, short power, short cubicCapacity, int price, int mileage,
-			boolean brandNew, boolean secondHand, boolean isDamaged) {
-
+			boolean secondHand, boolean isDamaged) {
 		this.brand = brand;
 		this.model = model;
 		this.type = type;
@@ -48,8 +49,9 @@ public class Car {
 
 		this.price = price;
 		this.mileage = mileage;
-		this.brandNew = brandNew;
-		this.secondHand = secondHand;
+
+		this.brandNew = LocalDate.now().getYear() - yearOfLaunch <= 2;
+		this.secondHand = secondHand ? secondHand : mileage > 0 ? true : false;
 		this.isDamaged = isDamaged;
 	}
 
@@ -107,7 +109,6 @@ public class Car {
 	// Presentation view
 
 	public void startTheEngine() {
-		System.out.println("The engine is started.");
 	}
 
 	public void printMileage() {

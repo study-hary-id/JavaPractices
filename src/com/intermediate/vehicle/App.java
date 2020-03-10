@@ -8,27 +8,32 @@ public class App {
 
 //		testInstantiateCarAndPrintDescription();
 
-		testDriveAndShowToyotaCarsDescription();
+//		testDriveAndShowToyotaCarsDescription();
 
-		testDriveAndShowDaihatsuCarsDescription();
+//		testDriveAndShowDaihatsuCarsDescription();
 
 //		testSecondCarVisibilityMileageAfterReset();
+
+//		testDriveAndShowToyotaElectricDescription();
 	}
 
 	static void testInstantiateCarAndPrintDescription() {
-		Car car = new Car("Toyota", "Avanza", "1.3 E CVT", (short) 2022, "White", "CVT", (byte) 7, (byte) 5, (short) 98,
-				(short) 1329, 247800000, 0, true, false, false);
-		car.printDescription();
-		car.startTheEngine();
-		car.printTransmission();
+//		Car car = new Car(
+//				"Toyota", "Avanza", "1.3 E CVT", (short) 2022, 
+//				"White", "CVT", (byte) 7, (byte) 5, (short) 98, 
+//				(short) 1329, 247800000, 0, true, false, false
+//		);
+//		car.printDescription();
+//		car.startTheEngine();
+//		car.printTransmission();
 	}
 
 	static void testDriveAndShowToyotaCarsDescription() {
 		Toyota toyotaAvanza1_3EMT = new Toyota("Avanza", "1.3 E M/T", (short) 2022, "White", "MT", (byte) 7, (byte) 5,
-				(short) 98, (short) 1329, 233100000, 0, true, false, false);
+				(short) 98, (short) 1329, 233100000, 0, false, false);
 
 		Toyota toyotaAvanza1_3ECVT = new Toyota("Avanza", "1.3 E CVT", (short) 2022, "Gray", "CVT", (byte) 7, (byte) 5,
-				(short) 98, (short) 1329, 247800000, 0, true, false, false);
+				(short) 98, (short) 1329, 247800000, 0, false, false);
 
 		Car[] myToyotaCars = { toyotaAvanza1_3EMT, toyotaAvanza1_3ECVT };
 		Random randomNumberGenerator = new Random();
@@ -49,10 +54,10 @@ public class App {
 
 	static void testDriveAndShowDaihatsuCarsDescription() {
 		Daihatsu daihatsuXenia1_3MMT = new Daihatsu("Xenia", "1.3 M MT", (short) 2022, "Gray", "MT", (byte) 7, (byte) 5,
-				(short) 98, (short) 1329, 190900000, 0, true, false, false);
+				(short) 98, (short) 1329, 190900000, 0, false, false);
 
 		Daihatsu daihatsuXenia1_3XMT = new Daihatsu("Xenia", "1.3 X MT", (short) 2022, "Black", "MT", (byte) 7,
-				(byte) 5, (short) 98, (short) 1329, 193900000, 0, true, false, false);
+				(byte) 5, (short) 98, (short) 1329, 193900000, 0, false, false);
 
 		Car[] myDaihatsuCars = { daihatsuXenia1_3MMT, daihatsuXenia1_3XMT };
 		Random randomNumberGenerator = new Random();
@@ -68,10 +73,10 @@ public class App {
 		}
 	}
 
-	public static void testSecondCarVisibilityMileageAfterReset() {
+	static void testSecondCarVisibilityMileageAfterReset() {
 		// Initialization
-		Car toyotaAvanza1_3ECVT = new Car("Toyota", "Avanza", "1.3 E CVT", (short) 2022, "gray", "CVT", (byte) 7,
-				(byte) 5, (short) 98, (short) 1329, 247800000, 0, true, false, false);
+		Car toyotaAvanza1_3ECVT = new Toyota("Avanza", "1.3 E CVT", (short) 2022, "gray", "CVT", (byte) 7, (byte) 5,
+				(short) 98, (short) 1329, 247800000, 0, false, false);
 
 		// Check mileage data before driving.
 		// There are no data about mileage.
@@ -98,6 +103,19 @@ public class App {
 		// It means this car is a second hand car.
 		// But it just reseted the mileage data.
 		// Someone can't fraud the car dealer.
+	}
+
+	static void testDriveAndShowToyotaElectricDescription() {
+		AvanzaElectric avanzaElectric = new AvanzaElectric("1.3 E M/T", (short) 2022, "White", "MT", (byte) 7, (byte) 5,
+				(short) 98, (short) 1329, 233100000, 0, false, false);
+
+		avanzaElectric.startTheElectricEngine();
+
+		System.out.println();
+
+		avanzaElectric.drive(150000);
+
+		avanzaElectric.printDescription();
 	}
 
 }
