@@ -21,6 +21,12 @@ public class FootballPlayer extends Athlete {
 
 	// Presentation view
 
+	public void playGame(int passingYards, int completions) {
+		super.playGame();
+		this.passingYards += passingYards;
+		this.completions += completions;
+	}
+
 	@Override
 	public void printBiodata() {
 		super.printBiodata();

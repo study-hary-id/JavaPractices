@@ -28,9 +28,34 @@ public class Athlete {
 		this.gamesPlayed = gamesPlayed;
 	}
 
+	// Controller
+
 	public String getName() {
 		return this.name;
 	}
+
+	public int getGamesPlayed() {
+		return this.gamesPlayed;
+	}
+
+	// TODO: is this method necessary.
+	public String getTeam() {
+		return this.team;
+	}
+
+	public void setTeam(String team) {
+		this.team = team;
+	}
+
+	// Control games played data.
+	// Child class should'nt access it.
+	// If gamesPlayed needs to update it.
+	// Use playGame() method.
+	private void addGamesPlayed() {
+		this.gamesPlayed++;
+	}
+
+	// Utilities
 
 	private short calculateAge() {
 		int currentYear = LocalDate.now().getYear();
@@ -38,6 +63,11 @@ public class Athlete {
 	}
 
 	// Presentation view
+
+	public void playGame() {
+		System.out.println(name + " started a game.");
+		addGamesPlayed();
+	}
 
 	public void printBiodata() {
 		System.out.println("Athlete's name: " + name);
