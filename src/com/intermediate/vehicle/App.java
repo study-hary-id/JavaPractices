@@ -20,6 +20,7 @@ public class App {
 				(short) 1329, 247800000, 0, true, false, false);
 		car.printDescription();
 		car.startTheEngine();
+		car.printTransmission();
 	}
 
 	static void testDriveAndShowToyotaCarsDescription() {
@@ -39,7 +40,10 @@ public class App {
 			System.out.println("--------------------------------");
 
 			car.printDescription();
-			System.out.println("---------------------------\n");
+			System.out.println("--------------------------------");
+
+			car.printTransmission();
+			System.out.println();
 		}
 	}
 

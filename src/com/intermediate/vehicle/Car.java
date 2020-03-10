@@ -81,7 +81,19 @@ public class Car {
 		return this.isDamaged;
 	}
 
+	public boolean isManual() {
+		return this.transmission == "MT";
+	}
+
 	// Controller
+
+	public void setPrice(int price) {
+		this.price = Math.abs(price);
+	}
+
+	public int getPrice() {
+		return this.price;
+	}
 
 	public void drive(int mileage) {
 		this.secondHand = true;
@@ -100,6 +112,12 @@ public class Car {
 
 	public void printMileage() {
 		System.out.println("Mileage: " + mileage / 1000 + " KM");
+	}
+
+	public void printTransmission() {
+		if (isManual()) {
+			System.out.println("This car used manual transmission.");
+		}
 	}
 
 	public void printDescription() {
