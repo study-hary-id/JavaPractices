@@ -14,7 +14,7 @@ public class App {
 //		testPrintBiodataFootballPlayer();
 //		printAvailableFootballPlayer();
 
-//		testUnitControllerSwimmerImpl();
+		testUnitControllerSwimmerImpl();
 //		testPrintBiodataSwimmerImpl();
 //		testUnitControllerAthlete();
 
@@ -144,9 +144,10 @@ public class App {
 		System.out.println(gamesPlayed == 544);
 		System.out.println("----");
 
+		katinkaHosszu.freestyle(300);
 		katinkaHosszu.printBiodata();
 		System.out.println("Test: competitions: it should be " + gamesPlayed);
-		System.out.println("Test: finaPoints  : it should be " + (845 * 2));
+		System.out.println("Test: finaPoints  : it should be " + ((845 * 2) + (300 / 2)));
 	}
 
 	static void testPrintBiodataSwimmerImpl() {

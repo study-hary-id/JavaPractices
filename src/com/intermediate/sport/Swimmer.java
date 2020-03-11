@@ -39,4 +39,10 @@ public class Swimmer extends Athlete implements Swimming {
 		System.out.println("Swimming freestyle very fast.");
 	}
 
+	@Override
+	public void freestyle(int distance) {
+		System.out.println("Swimming " + distance + " m freestyle very fast.");
+		this.finaPoints += distance / 2;
+	}
+
 }
