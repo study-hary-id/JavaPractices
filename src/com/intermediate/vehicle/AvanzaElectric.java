@@ -16,4 +16,14 @@ public class AvanzaElectric extends Toyota implements ElectricMode {
 		System.out.println(super.getFullname() + " starts its electric engine.");
 	}
 
+	@Override
+	public void electricVehicleCharging() {
+		System.out.println(super.getFullname() + " starts normal charging.");
+	}
+
+	@Override
+	public void electricVehicleCharging(String type) {
+		System.out.println(super.getFullname() + " starts " + type + " charging.");
+	}
+
 }

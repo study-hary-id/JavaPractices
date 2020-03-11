@@ -14,7 +14,7 @@ public class App {
 
 //		testSecondCarVisibilityMileageAfterReset();
 
-//		testDriveAndShowToyotaElectricDescription();
+		testDriveAndShowToyotaElectricDescription();
 	}
 
 	static void testInstantiateCarAndPrintDescription() {
@@ -116,6 +116,10 @@ public class App {
 		avanzaElectric.drive(150000);
 
 		avanzaElectric.printDescription();
+
+		System.out.println();
+
+		avanzaElectric.electricVehicleCharging();
 	}
 
 }
