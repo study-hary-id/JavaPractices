@@ -3,26 +3,30 @@ package com.advanced.enumc;
 public class App {
 
 	public static void main(String[] args) throws CloneNotSupportedException {
+		printAvailablePizzaSize();
+		System.out.println();
+
+		Pizza pizzaOrder = new Pizza("Margarita", PizzaSize.MEDIUM);
+		printPizzaOrder(pizzaOrder);
+		System.out.println();
+
+		Pizza samePizzaOrder = (Pizza) pizzaOrder.clone();
+		printPizzaOrder(samePizzaOrder);
+	}
+
+	static void printAvailablePizzaSize() {
 		System.out.println("Available sizes:");
 		for (PizzaSize pizzaSize : PizzaSize.values()) {
 			System.out.print(pizzaSize.getPizzaSizeText() + ", ");
 		}
+		System.out.println();
+	}
 
-		System.out.println("\n---------------------------");
-
-		Pizza pizzaOrder = new Pizza("Margarita", PizzaSize.MEDIUM);
-
+	static void printPizzaOrder(Pizza pizza) {
 		System.out.println("I ordered the following pizza:");
-		System.out.println("Name : " + pizzaOrder.getName());
-		System.out.println("Size : " + pizzaOrder.getPizzaSize().getPizzaSizeText());
-		System.out.println("Price: $" + pizzaOrder.getPrice());
-
-		Pizza samePizzaOrder = (Pizza) pizzaOrder.clone();
-
-		System.out.println("I ordered the following pizza:");
-		System.out.println("Name : " + samePizzaOrder.getName());
-		System.out.println("Size : " + samePizzaOrder.getPizzaSize().getPizzaSizeText());
-		System.out.println("Price: $" + samePizzaOrder.getPrice());
+		System.out.println("Name : " + pizza.getName());
+		System.out.println("Size : " + pizza.getPizzaSize().getPizzaSizeText());
+		System.out.println("Price: $" + pizza.getPrice());
 	}
 
 }
