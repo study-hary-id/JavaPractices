@@ -10,6 +10,8 @@ public class App {
 
 		testPizzaWithObjectEquals();
 
+		testPizzaWithObjectGetClass();
+
 	}
 
 	static void printAvailablePizzaSize() {
@@ -77,6 +79,24 @@ public class App {
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
+	}
+
+	static void testPizzaWithObjectGetClass() {
+		Pizza margarita = new Pizza("Margarita", PizzaSize.MEDIUM);
+		System.out.print("testPizzaWithObjectGetClass: ");
+		System.out.println(margarita.getClass());
+
+		System.out.print("    test class name with package: ");
+		System.out.println(margarita.getClass().getName() == "com.advanced.enumc.Pizza" ? "Pass" : "Fail");
+
+		System.out.print("    test class name without package: ");
+		System.out.println(margarita.getClass().getSimpleName().equals("Pizza") ? "Pass" : "Fail");
+
+//		System.out.println(margarita.getClass().getSuperclass());
+//		System.out.println(Arrays.toString(margarita.getClass().getFields()));
+//		System.out.println(Arrays.toString(margarita.getClass().getDeclaredFields()));
+//		System.out.println(Arrays.toString(margarita.getClass().getMethods()));
+//		System.out.println(Arrays.toString(margarita.getClass().getDeclaredMethods()));
 	}
 
 }
