@@ -14,6 +14,8 @@ public class App {
 
 		testPizzaWithObjectHashCode();
 
+		testPizzaWithObjectToString();
+
 	}
 
 	static void printAvailablePizzaSize() {
@@ -51,6 +53,7 @@ public class App {
 			Pizza margaritaClone = (Pizza) margarita.clone();
 			System.out.print("testPizzaWithObjectClone: ");
 			System.out.println(margarita != margaritaClone ? "Pass" : "Fail");
+			System.out.println("------------------------------");
 
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
@@ -77,6 +80,7 @@ public class App {
 
 			System.out.print("    same object with different attributes value: ");
 			System.out.println(!margarita.equals(margheritaLG) ? "Pass" : "Fail");
+			System.out.println("------------------------------");
 
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
@@ -99,6 +103,8 @@ public class App {
 //		System.out.println(Arrays.toString(margarita.getClass().getDeclaredFields()));
 //		System.out.println(Arrays.toString(margarita.getClass().getMethods()));
 //		System.out.println(Arrays.toString(margarita.getClass().getDeclaredMethods()));
+
+		System.out.println("------------------------------");
 	}
 
 	static void testPizzaWithObjectHashCode() {
@@ -110,6 +116,27 @@ public class App {
 			System.out.println("testPizzaWithObjectHashCode: ");
 			System.out.println("    margarita's hashcode: " + margarita.hashCode());
 			System.out.println("    margaritaClone's hashcode: " + margaritaClone.hashCode());
+			System.out.println("------------------------------");
+
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	static void testPizzaWithObjectToString() {
+		try {
+
+			Pizza margarita = new Pizza("Margarita", PizzaSize.MEDIUM);
+			Pizza margaritaClone = (Pizza) margarita.clone();
+
+			System.out.print("testPizzaWithObjectToString: ");
+			System.out.println(
+					margarita.toString().equals("Pizza{name='Margarita', pizzaSize=MEDIUM, price=7.99}") ? "Pass"
+							: "Fail");
+
+			System.out.print("    test margarita toString compare with clone toString: ");
+			System.out.println(margarita.toString().equals(margaritaClone.toString()));
+			System.out.println("------------------------------");
 
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
