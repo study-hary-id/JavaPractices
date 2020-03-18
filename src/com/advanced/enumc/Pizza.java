@@ -58,4 +58,17 @@ public class Pizza implements Cloneable {
 		return Objects.equals(pizza.name, name) && pizza.price == price && pizza.pizzaSize == pizzaSize;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, pizzaSize, price);
+
+//		int result = 7;
+//
+//		result = 31 * result + Double.valueOf(price).hashCode();
+//		result = 31 * result + (name == null ? 0 : name.hashCode());
+//		result = 31 * result + (pizzaSize == null ? 0 : pizzaSize.hashCode());
+//
+//		return result;
+	}
+
 }

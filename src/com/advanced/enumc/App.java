@@ -12,6 +12,8 @@ public class App {
 
 		testPizzaWithObjectGetClass();
 
+		testPizzaWithObjectHashCode();
+
 	}
 
 	static void printAvailablePizzaSize() {
@@ -97,6 +99,21 @@ public class App {
 //		System.out.println(Arrays.toString(margarita.getClass().getDeclaredFields()));
 //		System.out.println(Arrays.toString(margarita.getClass().getMethods()));
 //		System.out.println(Arrays.toString(margarita.getClass().getDeclaredMethods()));
+	}
+
+	static void testPizzaWithObjectHashCode() {
+		try {
+
+			Pizza margarita = new Pizza("Margarita", PizzaSize.MEDIUM);
+			Pizza margaritaClone = (Pizza) margarita.clone();
+
+			System.out.println("testPizzaWithObjectHashCode: ");
+			System.out.println("    margarita's hashcode: " + margarita.hashCode());
+			System.out.println("    margaritaClone's hashcode: " + margaritaClone.hashCode());
+
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
