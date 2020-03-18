@@ -1,5 +1,7 @@
 package com.advanced.enumc;
 
+import java.util.Objects;
+
 public class Pizza implements Cloneable {
 
 	private String name;
@@ -39,6 +41,21 @@ public class Pizza implements Cloneable {
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
 		return super.clone();
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+
+		if (!(object instanceof Pizza)) {
+			return false;
+		}
+
+		Pizza pizza = (Pizza) object;
+
+		return Objects.equals(pizza.name, name) && pizza.price == price && pizza.pizzaSize == pizzaSize;
 	}
 
 }
