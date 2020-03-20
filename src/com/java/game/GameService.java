@@ -39,6 +39,13 @@ public final class GameService {
 
 				if (isGuessingCorrect) {
 					System.out.println("It was a good guess.");
+					if (isGameFinished(guessingArray)) {
+						System.out.println("----------------------------------");
+						System.out.println("Congratulations you won! The word: " + new String(guessingArray) + ": "
+								+ numberOfChances + " chances left");
+						System.out.println("Ending the process");
+						break;
+					}
 				} else {
 					numberOfChances--;
 					if (numberOfChances == 0) {
@@ -56,6 +63,15 @@ public final class GameService {
 			e.printStackTrace();
 		}
 
+	}
+
+	private static boolean isGameFinished(char[] guessingArray) {
+		for (int i = 0; i < guessingArray.length; i++) {
+			if (guessingArray[i] == '_') {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	private static String getRandomWord() throws FileNotFoundException {
