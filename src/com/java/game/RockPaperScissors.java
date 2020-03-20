@@ -22,6 +22,7 @@ public class RockPaperScissors {
 			if (isValidInput(userMove)) {
 				String opponentMove = generateOpponentMove();
 				System.out.println("Your opponent's move: " + opponentMove);
+				start(userMove, opponentMove);
 
 			} else {
 				System.out.println("Your input is not valid");
@@ -46,6 +47,18 @@ public class RockPaperScissors {
 			return "paper";
 		case 2:
 			return "scissors";
+		}
+	}
+
+	private static void start(String userMove, String opponentMove) {
+		if (userMove.equals(opponentMove)) {
+			System.out.println("It's a tie.");
+		} else if (userMove.equals("paper") && opponentMove.equals("rock")
+				|| userMove.equals("rock") && opponentMove.equals("scissors")
+				|| userMove.equals("scissors") && opponentMove.equals("paper")) {
+			System.out.println("You won!");
+		} else {
+			System.out.println("Your opponent won!");
 		}
 	}
 
