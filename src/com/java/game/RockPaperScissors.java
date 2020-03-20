@@ -1,5 +1,6 @@
 package com.java.game;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class RockPaperScissors {
@@ -19,8 +20,13 @@ public class RockPaperScissors {
 			}
 
 			if (isValidInput(userMove)) {
-				System.out.println(userMove);
+				String opponentMove = generateOpponentMove();
+				System.out.println("Your opponent's move: " + opponentMove);
+
+			} else {
+				System.out.println("Your input is not valid");
 			}
+			System.out.println();
 		}
 
 		inputScanner.close();
@@ -28,6 +34,19 @@ public class RockPaperScissors {
 
 	private static boolean isValidInput(String userInput) {
 		return userInput.equals("rock") || userInput.equals("scissors") || userInput.equals("paper");
+	}
+
+	private static String generateOpponentMove() {
+		Random randomNumberGenerator = new Random();
+		switch (randomNumberGenerator.nextInt(3)) {
+		case 0:
+		default:
+			return "rock";
+		case 1:
+			return "paper";
+		case 2:
+			return "scissors";
+		}
 	}
 
 }
